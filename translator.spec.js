@@ -56,4 +56,44 @@ describe('Testing translateToMorse', () => {
     // Assert
     expect(result).toBe("-.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --..");
   });
+
+  it("'.' should translate to be '.-.-.-'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "."
+    let result = translateToMorse(str);
+    // Assert
+    expect(result).toBe(".-.-.-");
+  });
+
+  it("',' should translate to be '--..--'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = ","
+    let result = translateToMorse(str);
+    // Assert
+    expect(result).toBe(".-.-.-");
+  });
+
+  it("'?' should translate to be '..--..'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "?"
+    let result = translateToMorse(str);
+    // Assert
+    expect(result).toBe("..--..");
+  });
+
+  it("'-' should translate to be '-....-'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "-"
+    let result = translateToMorse(str);
+    // Assert
+    expect(result).toBe("-....-");
+  });
 });
