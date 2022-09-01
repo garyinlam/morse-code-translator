@@ -97,6 +97,16 @@ describe('Testing translateToMorse', () => {
     expect(result).toBe("-....-");
   });
 
+  it(`'!/"&()=+:'@'  should translate to be '-.-.-- -..-. .-..-. .-... -.--. -.--.- -...- .-.-. ---... .----. .--.-.'`, () => {
+    // Arrange
+    let str;
+    // Act
+    str = `!/"&()=+:'@`
+    let result = translateToMorse(str);
+    // Assert
+    expect(result).toBe("-.-.-- -..-. .-..-. .-... -.--. -.--.- -...- .-.-. ---... .----. .--.-.");
+  });
+
   it("'1' should translate to be '.----'", () => {
     // Arrange
     let str;
@@ -106,7 +116,7 @@ describe('Testing translateToMorse', () => {
     // Assert
     expect(result).toBe(".----");
   });
-  
+
   it("'2' should translate to be '..---'", () => {
     // Arrange
     let str;
