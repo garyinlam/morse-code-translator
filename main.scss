@@ -1,9 +1,14 @@
-$font-primary: Consolas,monaco,monospace;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+$font-primary: 'IBM Plex Mono',Consolas,monaco,monospace;
+$colour-primary: #00ff00;
+$colour-secondary: #000000;
 
 * {
   margin: 0;
   padding: 0;
   font-family: $font-primary;
+  background-color: $colour-secondary;
+  color: $colour-primary;
 }
 
 h1{
@@ -26,14 +31,24 @@ form {
   align-self: stretch;
 }
 
+.button {
+  border: $colour-primary 2px solid;
+  border-radius: 5px;
+  padding: 10px;
+  &:hover {
+    color: $colour-secondary;
+    background-color: $colour-primary;
+    font-weight: bold;
+    transition: 0.3s ease;
+  }
+}
+
 .output {
   font-size: 1.1em;
   font-weight: bold;
 }
 
 section {
-  border: 2px black solid;
   margin: 15px;
-  border-radius: 15px;
   padding: 10px;
 }

@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
 * {
   margin: 0;
   padding: 0;
-  font-family: Consolas, monaco, monospace;
+  font-family: "IBM Plex Mono", Consolas, monaco, monospace;
+  background-color: #000000;
+  color: #00ff00;
 }
 
 h1 {
@@ -24,14 +27,24 @@ form > * {
   align-self: stretch;
 }
 
+.button {
+  border: #00ff00 2px solid;
+  border-radius: 5px;
+  padding: 10px;
+}
+.button:hover {
+  color: #000000;
+  background-color: #00ff00;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
 .output {
   font-size: 1.1em;
   font-weight: bold;
 }
 
 section {
-  border: 2px black solid;
   margin: 15px;
-  border-radius: 15px;
   padding: 10px;
 }
