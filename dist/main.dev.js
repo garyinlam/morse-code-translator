@@ -10,7 +10,7 @@ var handleToMorse = function handleToMorse(e) {
   e.preventDefault();
   var str = inputBox.value;
   str = str.split("\n").join(" ");
-  str = str.replace(/\s+/g, ' ');
+  str = str.replace(/\s+/g, ' ').trim();
   output.innerHTML = (0, _translator.translateToMorse)(str);
 };
 

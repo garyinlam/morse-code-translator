@@ -8,7 +8,7 @@ const handleToMorse = (e) => {
   e.preventDefault();
   let str = inputBox.value;
   str = str.split("\n").join(" ");
-  str = str.replace(/\s+/g, ' ');
+  str = str.replace(/\s+/g, ' ').trim();
   output.innerHTML = translateToMorse(str);
 }
 
