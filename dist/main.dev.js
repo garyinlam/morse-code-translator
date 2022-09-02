@@ -8,7 +8,10 @@ var output = document.querySelector(".output");
 
 var handleToMorse = function handleToMorse(e) {
   e.preventDefault();
-  output.innerHTML = (0, _translator.translateToMorse)(inputBox.value.split("\n").join(" "));
+  var str = inputBox.value;
+  str = str.split("\n").join(" ");
+  str = str.replace(/\s+/g, ' ');
+  output.innerHTML = (0, _translator.translateToMorse)(str);
 };
 
 toMorseButton.addEventListener("click", handleToMorse);
