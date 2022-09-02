@@ -11,8 +11,11 @@
 
   <form>
     <label for="inputBox">Message to translate:</label>
-    <textarea type="text" id="inputBox" data-cy="input" rows="10"></textarea>
-    <input type="submit" value="Translate to morse" data-cy="submit" id="toMorse" class="button">
+    <textarea type="text" id="inputBox" data-cy="input" rows="10" placeholder="Type in message. &#10;If translating from morse use '.' and '-', separating letters by spaces and words by '/'"></textarea>
+    <div>
+      <input type="submit" value="Translate to morse" data-cy="toMorse" id="toMorse" class="button">
+      <input type="submit" value="Translate from morse" data-cy="fromMorse" id="fromMorse" class="button">
+    </div>
   </form>
 
   <section>

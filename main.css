@@ -31,6 +31,7 @@ form > * {
   border: #00ff00 2px solid;
   border-radius: 5px;
   padding: 10px;
+  font-size: 1em;
 }
 .button:hover {
   color: #000000;

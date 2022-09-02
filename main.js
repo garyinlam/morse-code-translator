@@ -1,7 +1,8 @@
-import { translateToMorse } from "./translator.js";
+import { translateToMorse, translateFromMorse } from "./translator.js";
 
 const inputBox = document.getElementById("inputBox");
 const toMorseButton = document.getElementById("toMorse");
+const fromMorseButton = document.getElementById("fromMorse");
 const output = document.querySelector(".output");
 
 const handleToMorse = (e) => {
@@ -12,4 +13,13 @@ const handleToMorse = (e) => {
   output.innerHTML = translateToMorse(str);
 }
 
-toMorseButton.addEventListener("click", handleToMorse)
+const handleFromMorse = (e) => {
+  e.preventDefault();
+  let str = inputBox.value;
+  str = str.split("\n").join("/");
+  str = str.replace(/\s+/g, ' ').trim();
+  output.innerHTML = translateFromMorse(str);
+}
+
+toMorseButton.addEventListener("click", handleToMorse); 
+fromMorseButton.addEventListener("click", handleFromMorse);
