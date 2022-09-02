@@ -101,18 +101,22 @@ var singleMorse = function singleMorse(morseStr) {
 };
 
 var translateFromMorse = function translateFromMorse(str) {
+  // split string into individual morse sections
   var morseArr = str.split(" ");
   var charArr = morseArr.map(function (single) {
+    // if / then return space
     if (single == "/") {
       return " ";
     } else {
+      // otherwise find character for morse letter
       return singleMorse(single);
     }
-  });
+  }); // if any morse letter that could not be found
 
   if (charArr.includes("")) {
     return "Cannot translate ".concat(morseArr[charArr.indexOf("")]);
   } else {
+    // all morse letters have a corresponding character
     return charArr.join("");
   }
 };

@@ -97,17 +97,22 @@ const singleMorse = (morseStr) => {
 }
 
 export const translateFromMorse = (str) => {
+  // split string into individual morse sections
   const morseArr = str.split(" ");
   const charArr = morseArr.map((single) => {
+    // if / then return space
     if(single == "/") {
       return " ";
     } else {
+    // otherwise find character for morse letter
       return singleMorse(single);
     }
   });
+  // if any morse letter that could not be found
   if (charArr.includes("")) {
     return `Cannot translate ${morseArr[charArr.indexOf("")]}`
   } else {
+    // all morse letters have a corresponding character
     return charArr.join("");
   }
 }
