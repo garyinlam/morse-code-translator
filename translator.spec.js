@@ -1,6 +1,4 @@
-import { translateToMorse } from "./translator";
-
-//klmnopqrstuvwxyz
+import { translateToMorse, translateFromMorse } from "./translator";
 
 describe('Testing translateToMorse', () => {
   it("'a' should translate to be '.-'", () => {
@@ -208,3 +206,16 @@ describe('Testing translateToMorse', () => {
   });
 
 });
+
+
+xdescribe('Testing translateFromMorse', () => {
+  it("'.-' should translate to be 'A'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = ".-"
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("A");
+  });
+})
