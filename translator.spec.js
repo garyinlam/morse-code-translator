@@ -72,7 +72,7 @@ describe('Testing translateToMorse', () => {
     str = ","
     let result = translateToMorse(str);
     // Assert
-    expect(result).toBe(".-.-.-");
+    expect(result).toBe("--..--");
   });
 
   it("'?' should translate to be '..--..'", () => {

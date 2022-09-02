@@ -2,7 +2,7 @@ const morseMap = new Map();
 
 const populateMap = () => {
   morseMap.set('a','.-');
-  morseMap.set('b','-..');
+  morseMap.set('b','-...');
   morseMap.set('c','-.-.');
   morseMap.set('d','-..');
   morseMap.set('e','.');
@@ -54,18 +54,33 @@ const populateMap = () => {
   morseMap.set(':','---...');
   morseMap.set("'",'.----.');
   morseMap.set('@','.--.-.');
-
-
 }
+
+populateMap();
 
 export const translateToMorse = (str) => {
   // convert to lower case - morse code is case insensitive
   str = str.toLowerCase();
-  // string to return
-  let retStr = "";
+  // store morse in array
+  const morseArr = [];
+  // loop through string
+  for (let i = 0; i < str.length; i++) {
+    const currChar = str[i];
+    // morse letter is recognised
+    if (morseMap.has(currChar)) {
+      morseArr.push(morseMap.get(currChar));
+    // space handle
+    } else if (currChar === " ") {
+      morseArr.push("/");
+    // not translatable
+    } else {
+      morseArr.length = 0;
+      morseArr.push(`Cannot translate ${currChar} to morse`);
+      i = str.length;
+    }
+  }
 
-
-  return retStr;
+  return morseArr.join(" ");
 }
 
 export const translateFromMorse = () => {
