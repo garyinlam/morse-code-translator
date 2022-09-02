@@ -217,7 +217,7 @@ describe('Testing translateToMorse', () => {
 });
 
 
-xdescribe('Testing translateFromMorse', () => {
+describe('Testing translateFromMorse', () => {
   it("'.-' should translate to be 'A'", () => {
     // Arrange
     let str;
@@ -227,4 +227,194 @@ xdescribe('Testing translateFromMorse', () => {
     // Assert
     expect(result).toBe("A");
   });
+
+  it("'-... -.-. -..' should translate to be 'BCD'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "-... -.-. -.."
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("BCD");
+  });
+
+  it("'. / ..-. --. / .... ..' should translate to be 'E FG HI'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = ". / ..-. --. / .... .."
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("E FG HI");
+  });
+
+  it("'.--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --..' should translate to be 'JKLMNOPQRSTUVWXYZ'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = ".--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.."
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("JKLMNOPQRSTUVWXYZ");
+  });
+
+  it("'.-.-.-' should translate to be '.'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = ".-.-.-"
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe(".");
+  });
+
+  it("'--..--' should translate to be ','", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "--..--"
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe(",");
+  });
+
+  it("'..--..' should translate to be '?'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "..--.."
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("?");
+  });
+
+  it("'-....-' should translate to be '-'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "-....-"
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("-");
+  });
+
+  it(`'-.-.-- -..-. .-..-. .-... -.--. -.--.- -...- .-.-. ---... .----. .--.-.'  should translate to be '!/"&()=+:'@'`, () => {
+    // Arrange
+    let str;
+    // Act
+    str = '-.-.-- -..-. .-..-. .-... -.--. -.--.- -...- .-.-. ---... .----. .--.-.';
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe(`!/"&()=+:'@`);
+  });
+
+  it("'.----' should translate to be '1'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = ".----"
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("1");
+  });
+
+  it("'..---' should translate to be '2'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "..---"
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("2");
+  });
+
+  it("'...--' should translate to be '3'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "...--"
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("3");
+  });
+
+  it("'....-' should translate to be '4'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "....-"
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("4");
+  });
+
+  it("'.....' should translate to be '5'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "....."
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("5");
+  });
+
+  it("'-....' should translate to be '6'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "-...."
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("6");
+  });
+
+  it("'--...' should translate to be '7'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "--..."
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("7");
+  });
+
+  it("'---..' should translate to be '8'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "---.."
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("8");
+  });
+
+  it("'----.' should translate to be '9'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "----."
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("9");
+  });
+
+  it("'-----' should translate to be '0'", () => {
+    // Arrange
+    let str;
+    // Act
+    str = "-----"
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("0");
+  });
+
+  it("'......' should fail to translate",() => {
+    // Arrange
+    let str;
+    // Act
+    str = "......"
+    let result = translateFromMorse(str);
+    // Assert
+    expect(result).toBe("Cannot translate ......");
+  })
 })
