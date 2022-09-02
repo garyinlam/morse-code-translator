@@ -61,7 +61,19 @@ var populateMap = function populateMap() {
   morseMap.set('@', '.--.-.');
 };
 
-populateMap();
+populateMap(); // get indices of an array that are an empty string
+
+var getEmptyIndex = function getEmptyIndex(arr) {
+  var indices = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] == "") {
+      indices.push(i);
+    }
+  }
+
+  return indices;
+};
 
 var translateToMorse = function translateToMorse(str) {
   // convert to lower case - morse code is case insensitive
@@ -77,13 +89,21 @@ var translateToMorse = function translateToMorse(str) {
     } else if (currChar === " ") {
       morseArr.push("/"); // not translatable
     } else {
-      morseArr.length = 0;
-      morseArr.push("Cannot translate ".concat(currChar, " to morse"));
-      i = str.length;
+      morseArr.push("");
     }
-  }
+  } // check for untranslated characters
 
-  return morseArr.join(" ");
+
+  if (morseArr.includes("")) {
+    var empty = getEmptyIndex(morseArr);
+    var retStr = "Cannot translate ";
+    empty.forEach(function (item) {
+      retStr += "".concat(str[item], ", ");
+    });
+    return retStr.slice(0, -2) + " to morse";
+  } else {
+    return morseArr.join(" ");
+  }
 }; // single character from morse code
 
 
@@ -114,7 +134,12 @@ var translateFromMorse = function translateFromMorse(str) {
   }); // if any morse letter that could not be found
 
   if (charArr.includes("")) {
-    return "Cannot translate ".concat(morseArr[charArr.indexOf("")]);
+    var empty = getEmptyIndex(charArr);
+    var retStr = "Cannot translate ";
+    empty.forEach(function (item) {
+      retStr += "".concat(morseArr[item], ", ");
+    });
+    return retStr.slice(0, -2);
   } else {
     // all morse letters have a corresponding character
     return charArr.join("");

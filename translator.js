@@ -59,6 +59,17 @@ const populateMap = () => {
 
 populateMap();
 
+// get indices of an array that are an empty string
+const getEmptyIndex = (arr) => {
+  const indices = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == "") {
+      indices.push(i);
+    }
+  }
+  return indices;
+}
+
 export const translateToMorse = (str) => {
   // convert to lower case - morse code is case insensitive
   str = str.toLowerCase();
@@ -75,13 +86,20 @@ export const translateToMorse = (str) => {
       morseArr.push("/");
     // not translatable
     } else {
-      morseArr.length = 0;
-      morseArr.push(`Cannot translate ${currChar} to morse`);
-      i = str.length;
+      morseArr.push("");
     }
   }
-
-  return morseArr.join(" ");
+  // check for untranslated characters
+  if (morseArr.includes("")) {
+    const empty = getEmptyIndex(morseArr);
+    let retStr = "Cannot translate ";
+    empty.forEach((item) => {
+      retStr += `${str[item]}, `
+    })
+    return retStr.slice(0,-2)+" to morse";
+  } else {
+    return morseArr.join(" ");
+  }
 }
 
 // single character from morse code
@@ -110,7 +128,12 @@ export const translateFromMorse = (str) => {
   });
   // if any morse letter that could not be found
   if (charArr.includes("")) {
-    return `Cannot translate ${morseArr[charArr.indexOf("")]}`
+    const empty = getEmptyIndex(charArr);
+    let retStr = "Cannot translate ";
+    empty.forEach((item) => {
+      retStr += `${morseArr[item]}, `
+    })
+    return retStr.slice(0,-2);
   } else {
     // all morse letters have a corresponding character
     return charArr.join("");
