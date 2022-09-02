@@ -196,6 +196,15 @@ describe('Testing translateToMorse', function () {
 
     expect(result).toBe("Cannot translate # to morse");
   });
+  it("'#b <3' should fail to translate", function () {
+    // Arrange
+    var str; // Act
+
+    str = "#b <3";
+    var result = (0, _translator.translateToMorse)(str); // Assert
+
+    expect(result).toBe("Cannot translate #, < to morse");
+  });
 });
 describe('Testing translateFromMorse', function () {
   it("'.-' should translate to be 'A'", function () {
@@ -377,5 +386,14 @@ describe('Testing translateFromMorse', function () {
     var result = (0, _translator.translateFromMorse)(str); // Assert
 
     expect(result).toBe("Cannot translate ......");
+  });
+  it("'...... . ------' should fail to translate", function () {
+    // Arrange
+    var str; // Act
+
+    str = "...... . ------";
+    var result = (0, _translator.translateFromMorse)(str); // Assert
+
+    expect(result).toBe("Cannot translate ......, ------");
   });
 });
