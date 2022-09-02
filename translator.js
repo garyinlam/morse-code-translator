@@ -1,3 +1,4 @@
+// use map for [key,value] pairs to store morse code and corresponding characters
 const morseMap = new Map();
 
 const populateMap = () => {
@@ -83,6 +84,20 @@ export const translateToMorse = (str) => {
   return morseArr.join(" ");
 }
 
-export const translateFromMorse = () => {
-  
+// single character from morse code
+const singleMorse = (morseStr) => {
+  let retVal = "";
+  // search through the map
+  morseMap.forEach((value,key) => {
+    if(value == morseStr) {
+      retVal = key;
+    }
+  })
+  return retVal.toUpperCase();
+}
+
+export const translateFromMorse = (str) => {
+
+
+  return singleMorse(str);
 }
