@@ -8,7 +8,7 @@ var output = document.querySelector(".output");
 
 var handleToMorse = function handleToMorse(e) {
   e.preventDefault();
-  output.innerHTML = (0, _translator.translateToMorse)(inputBox.value);
+  output.innerHTML = (0, _translator.translateToMorse)(inputBox.value.split("\n").join(" "));
 };
 
 toMorseButton.addEventListener("click", handleToMorse);

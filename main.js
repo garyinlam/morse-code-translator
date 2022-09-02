@@ -6,7 +6,7 @@ const output = document.querySelector(".output");
 
 const handleToMorse = (e) => {
   e.preventDefault();
-  output.innerHTML = translateToMorse(inputBox.value);
+  output.innerHTML = translateToMorse(inputBox.value.split("\n").join(" "));
 }
 
 toMorseButton.addEventListener("click", handleToMorse)
