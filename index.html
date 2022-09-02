@@ -11,12 +11,15 @@
 
   <form>
     <label for="inputBox">Message to translate:</label>
-    <input type="text" id="inputBox" data-cy="input">
-    <input type="submit" value="Translate to morse" data-cy="submit">
+    <textarea type="text" id="inputBox" data-cy="input" rows="10"></textarea>
+    <input type="submit" value="Translate to morse" data-cy="submit" id="toMorse">
   </form>
-  
-  <div data-cy="output" class="output"></div>
 
-  <script src="./main.js"></script>
+  <section>
+    <h2>Output:</h2>
+    <div data-cy="output" class="output"></div>
+  </section>
+
+  <script type="module" src="./main.js"></script>
 </body>
 </html>
