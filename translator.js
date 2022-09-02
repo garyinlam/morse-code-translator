@@ -97,7 +97,17 @@ const singleMorse = (morseStr) => {
 }
 
 export const translateFromMorse = (str) => {
-
-
-  return singleMorse(str);
+  const morseArr = str.split(" ");
+  const charArr = morseArr.map((single) => {
+    if(single == "/") {
+      return " ";
+    } else {
+      return singleMorse(single);
+    }
+  });
+  if (charArr.includes("")) {
+    return `Cannot translate ${morseArr[charArr.indexOf("")]}`
+  } else {
+    return charArr.join("");
+  }
 }

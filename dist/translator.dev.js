@@ -101,7 +101,20 @@ var singleMorse = function singleMorse(morseStr) {
 };
 
 var translateFromMorse = function translateFromMorse(str) {
-  return singleMorse(str);
+  var morseArr = str.split(" ");
+  var charArr = morseArr.map(function (single) {
+    if (single == "/") {
+      return " ";
+    } else {
+      return singleMorse(single);
+    }
+  });
+
+  if (charArr.includes("")) {
+    return "Cannot translate ".concat(morseArr[charArr.indexOf("")]);
+  } else {
+    return charArr.join("");
+  }
 };
 
 exports.translateFromMorse = translateFromMorse;
