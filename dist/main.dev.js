@@ -18,7 +18,8 @@ var handleToMorse = function handleToMorse(e) {
 var handleFromMorse = function handleFromMorse(e) {
   e.preventDefault();
   var str = inputBox.value;
-  str = str.split("\n").join("/");
+  str = str.split("/").join(" / ");
+  str = str.split("\n").join(" / ");
   str = str.replace(/\s+/g, ' ').trim();
   output.innerHTML = (0, _translator.translateFromMorse)(str);
 };

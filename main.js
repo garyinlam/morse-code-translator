@@ -16,7 +16,8 @@ const handleToMorse = (e) => {
 const handleFromMorse = (e) => {
   e.preventDefault();
   let str = inputBox.value;
-  str = str.split("\n").join("/");
+  str = str.split("/").join(" / ");
+  str = str.split("\n").join(" / ");
   str = str.replace(/\s+/g, ' ').trim();
   output.innerHTML = translateFromMorse(str);
 }
