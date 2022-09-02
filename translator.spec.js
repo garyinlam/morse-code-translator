@@ -205,6 +205,15 @@ describe('Testing translateToMorse', () => {
     expect(result).toBe("-----");
   });
 
+  it("'#' should fail to translate",() => {
+    // Arrange
+    let str;
+    // Act
+    str = "#"
+    let result = translateToMorse(str);
+    // Assert
+    expect(result).toBe("Cannot translate # to morse");
+  })
 });
 
 

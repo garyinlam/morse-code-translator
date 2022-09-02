@@ -1,0 +1,1 @@
+import { translateToMorse } from "./translator";
