@@ -22,7 +22,11 @@ var handleToMorse = function handleToMorse(e) {
 var handleFromMorse = function handleFromMorse(e) {
   // prevent submit
   e.preventDefault();
-  var str = inputBox.value; // ensure all / have space before and after
+  var str = inputBox.value; // morse syntax handle - change to understood syntax
+
+  str = str.replace(/_/g, '-');
+  str = str.replace(/\|/g, '/');
+  str = str.replace(/\*/g, "."); // ensure all / have space before and after
 
   str = str.split("/").join(" / "); // remove line breaks
 
