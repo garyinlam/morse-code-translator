@@ -13,3 +13,11 @@ Translation is done in "translator.js" file for both to and from morse code
 - Morse -> Normal
   - Type in message (use '.' and '-' for inputs, add a space between each morse letter and a '/' between each word)
   - Click "Translate from morse"
+
+## Technologies
+
+- HTML
+- Sass CSS
+
+## Screenshot
+![Screenshot](/assets/Screenshot%202022-10-03%20142435.jpg)
